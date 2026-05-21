@@ -103,6 +103,73 @@
             animation: floatQuill 3s ease-in-out infinite;
         }
 
+        .mai-wrapper {
+            position: relative;
+            display: inline-block;
+            margin: 25px auto 15px;
+            padding: 20px 50px;
+        }
+
+        .mai-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 180px;
+            height: 100px;
+            background: radial-gradient(ellipse at center, 
+                rgba(218, 165, 32, 0.35) 0%, 
+                rgba(218, 165, 32, 0.15) 40%, 
+                transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+            animation: glowPulse 3s ease-in-out infinite;
+        }
+
+        .mai-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 140px;
+            height: 70px;
+            background: radial-gradient(ellipse at center,
+                rgba(26, 26, 26, 0.4) 0%,
+                rgba(26, 26, 26, 0.2) 50%,
+                transparent 80%);
+            border-radius: 50%;
+            z-index: 0;
+            filter: blur(8px);
+        }
+
+        .mai-header {
+            position: relative;
+            z-index: 2;
+            font-family: 'Cinzel', serif;
+            font-size: 2.5em;
+            color: #4a4a4a;
+            font-weight: 700;
+            letter-spacing: 6px;
+            text-shadow: 
+                2px 2px 4px rgba(0, 0, 0, 0.4),
+                0 0 20px rgba(218, 165, 32, 0.3),
+                0 0 40px rgba(218, 165, 32, 0.2);
+            font-style: italic;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { 
+                opacity: 0.6;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% { 
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.05);
+            }
+        }
+
         @keyframes floatQuill {
             0%, 100% { transform: translateY(0px) rotate(-15deg); }
             50% { transform: translateY(-10px) rotate(-15deg); }
@@ -203,8 +270,8 @@
         }
 
         .mai-word {
-            color: #1a1a1a;
-            font-weight: 600;
+            color: #3a3a3a;
+            font-weight: 700;
         }
 
         /* Form Card */
@@ -540,6 +607,9 @@
             </div>
 
             <div class="quill-icon">✒️</div>
+            <div class="mai-wrapper">
+                <div class="mai-header">Mai</div>
+            </div>
 
             <h1 class="header-title">Sunday Sandhai</h1>
             <h2 class="header-subtitle">சந்தை</h2>
@@ -547,7 +617,7 @@
             <div class="event-details">
                 <div class="event-date">📅 June 14th, Sunday</div>
                 <div class="event-time">⏰ 10 AM to 8 PM</div>
-                <div class="event-location">📍 Sahanas, De Silva Road, Alwarpet (Secret Entry Route in Caption)</div>
+                <div class="event-location">📍 Sahanas, De Silva Road, Alwarpet</div>
             </div>
         </div>
 
@@ -660,7 +730,7 @@
 
     <script>
         // Google Apps Script Web App URL - REPLACE THIS WITH YOUR ACTUAL URL
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwtR0XD2coCfLpNH7f8Am9kLJT2aQM_hpcYqAedGcFcKo8LnVNRxOdj-hpBg5_eAD8d/exec';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxCSJr2n4Jl8QQlbELM5BI5MQX_HP6HbUb1wNCF4-LAhpHDjWHLyu-kcp0VjHpvmd53/exec';
 
         const form = document.getElementById('vendorForm');
         const successMessage = document.getElementById('successMessage');
